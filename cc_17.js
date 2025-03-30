@@ -15,7 +15,7 @@ class Customer {
 //Task 3 Create a VIPCustomer Class - adjustment-
 //
 class VIPCustomer extends Customer {
-    constructor (name, email, vipLevel = 'Gold', 'Platinum') {
+    constructor (name, email, vipLevel = 'Platinum') {
         super(name, email);
         this.isVIP = isVIP;
     }
@@ -49,6 +49,24 @@ class SalesRep {
     }
 }
 
+//Test Logs
+
+const customer1 = new Customer('Patrick Joseph', 'PJoseph@stoogeco.com','Platinum'); 
+customer1.addPurchase(794); 
+
+const customer2 = new Customer('Jemella Bascus', 'jmbascus@skyboxx.com'); 
+customer2.addPurchase(1334); 
+
+const customer3 = new VIPCustomer('Shaquille Harrigan', 'ShaquilleHarrigan@gmail.com'); 
+customer3.addPurchase(7134);
+
+const salesRep1 = new SalesRep('Maggie Jones'); 
+salesRep1.addClient(customer1); 
+salesRep1.addClient(customer2); 
+salesRep1.addClient(customer3); 
+ 
+
+
 //Task 4: Build a Client Report System
 const totalRevenue = salesRep1.clients.reduce((total, client) => total + client.getTotalSpent(), 0); 
 const highSpendingCustomers = salesRep1.clients.filter(client => client.getTotalSpent() > 500); 
@@ -65,4 +83,7 @@ console.log('Customer Report:');
 customerReport.forEach(client => {  
 console.log(`Name: ${client.name}, Total Spent: $${client.totalSpent.toFixed(2)}`);  
 });
+
+
+
 
