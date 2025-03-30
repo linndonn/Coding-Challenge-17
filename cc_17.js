@@ -49,4 +49,20 @@ class SalesRep {
     }
 }
 
+//Task 4: Build a Client Report System
+const totalRevenue = salesRep1.clients.reduce((total, client) => total + client.getTotalSpent(), 0); 
+const highSpendingCustomers = salesRep1.clients.filter(client => client.getTotalSpent() > 500); 
+
+const customerReport = salesRep1.clients.map(client => ({ 
+    name: client.name, 
+    totalSpent: client.getTotalSpent(),  
+}));
+
+console.log(`Total Revenue All Customers: $${totalRevenue}`);
+console.log(`High Spending Customers: ${highSpendingCustomers.map(client => client.name).join(', ')}`);
+console.log('Customer Report:'); 
+
+customerReport.forEach(client => {  
+console.log(`Name: ${client.name}, Total Spent: $${client.totalSpent.toFixed(2)}`);  
+});
 
