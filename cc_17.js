@@ -12,6 +12,20 @@ class Customer {
     getTotalSpent () { return this.purchaseHistory.reduce((total, amount) => total + amount, 0); 
 }}
 
+//Task 3 Create a VIPCustomer Class - adjustment-
+//
+class VIPCustomer extends Customer {
+    constructor (name, email, vipLevel = 'Gold', 'Platinum') {
+        super(name, email);
+        this.isVIP = isVIP;
+    }
+//Add a method to add a 10% loyalty bonus
+    getTotalSpent () { 
+        const totalSpent = super.getTotalSpent(); 
+        return totalSpent * 1.1; 
+    }
+}
+
 //Task 2: Create a SalesRep Class
 // Set Properties: name, clients
 class SalesRep {
@@ -34,3 +48,5 @@ class SalesRep {
         }
     }
 }
+
+
